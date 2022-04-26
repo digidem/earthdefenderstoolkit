@@ -47,7 +47,9 @@ if( $parent_page ) {
                             <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0]; ?>" alt="">
                         </div>
                         <div class="content-container">
+                            <div class="pdf-downloads"><?php echo get_field('pdf_links') ?></div>
                             <?php echo get_the_content(); ?>
+                            <div class="pdf-downloads"><?php echo get_field('pdf_links') ?></div>
                         </div>
                     </div>
 
