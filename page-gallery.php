@@ -139,7 +139,6 @@ $locations = new WP_Query(array(
 		$jq (document).on('click', '[data-toggle="lightbox"]', function(event) {
 				event.preventDefault();
 				$jq (this).ekkoLightbox({ showArrows: false });
-        console.log('what')
 				$jq('.modal-body').append($(this).find('.caption-data').html());
 		});
 	})

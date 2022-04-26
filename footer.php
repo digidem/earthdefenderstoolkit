@@ -48,7 +48,7 @@
 		</div>
 
         <div class="bottom-section">
-			<?php echo __('Copyright', 'EDT'); ?> © 2021 Earth Defenders Toolkit
+			<?php echo __('Copyright', 'EDT'); ?> © <?php echo date("Y") ?> Earth Defenders Toolkit
 		</div>
     </footer>
 </div>

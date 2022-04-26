@@ -1,7 +1,4 @@
 jQuery(document).ready(function() {
-
-  console.log(window.location.search)
-  console.log()
   if(window.location.search.indexOf('lang') > -1) {
     jQuery('a').each(function() {
       var href = jQuery(this).attr('href');
