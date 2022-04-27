@@ -424,7 +424,6 @@
     max-width: 300px;
     color: #fff;
     padding: 12px 10px;
-    margin-bottom: 20px;
     font-size: 20px;
 }
 
@@ -1744,6 +1743,7 @@ transition: 0.3s ease-in-out all;
     max-width: 300px;
     color: #fff;
     padding: 12px 10px;
+    margin-bottom: 20px;
     font-size: 20px;
 }
 
