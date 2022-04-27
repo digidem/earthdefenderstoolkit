@@ -230,3 +230,23 @@ function my_custom_logo_link() {
     return $html;   
 }
 add_filter( 'get_custom_logo', 'my_custom_logo_link' );
+
+// Translated PDF download link for EDT pages
+function pdf_download_links() {
+	$post_en = apply_filters( 'wpml_object_id', get_the_ID(), 'post', FALSE, 'en' );
+	if( have_rows('pdf_link', $post_en) ):
+		echo '<div class="pdf-downloads">';
+		while( have_rows('pdf_link', $post_en) ): the_row(); 
+			$name = get_sub_field('the_name', $post_en);
+			$link = get_sub_field('the_link', $post_en);
+			echo '<div class="download-wrapper"><div class="pdf-left">';
+			echo '<a href="' . $link['url'] . '">';
+			echo '<img src="https://www.earthdefenderstoolkit.com/wp-content/uploads/2021/06/dl-icon@2x.png"></a></div><div class="pdf-right">';
+			echo '<a href="' . $link['url'] . '">';
+			echo '<h3>' . __('Download', 'EDT') . ' PDF</h3>';
+			echo '<p>' . $name . '</p></a>';
+			echo '</div></div>';
+		endwhile;
+		echo '</div>';
+	endif;
+}
