@@ -189,7 +189,7 @@ $op_query = new WP_Query($onePagers);
                     while ( $op_query->have_posts() ) : $op_query->the_post(); ?>
                         <div class="post">
                             <div class="image">
-                                <a href="<?php echo get_the_permalink(); ?>?lang=<?php echo apply_filters( 'wpml_current_language', NULL ); ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>"/></a>
+                                <a href="<?php echo get_the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>"/></a>
                             </div>
 
                             <div class="content">
