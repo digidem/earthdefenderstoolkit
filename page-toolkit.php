@@ -32,7 +32,7 @@ get_header();
             foreach($categories as $category) {
               $term = get_term_by( 'id', $category, 'category' );
               ?>
-                <div class="tool-option using-tools" data-terms="<?php echo sanitize_title($term->name);?>">
+                <div class="tool-option using-tools" data-terms="<?php echo sanitize_title($term->name);?>" data-label="<?php echo $term->name;?>">
                   <?php echo $term->name; ?>
                 </div>
               <?php
@@ -46,7 +46,7 @@ get_header();
             foreach($categories as $category) {
               $term = get_term_by( 'id', $category, 'category' );
               ?>
-                <div class="tool-option access-to" data-terms="<?php echo sanitize_title($term->name);?>">
+                <div class="tool-option access-to" data-terms="<?php echo sanitize_title($term->name);?>" data-label="<?php echo $term->name;?>">
                   <?php echo $term->name; ?>
                 </div>
 
@@ -61,7 +61,7 @@ get_header();
             foreach($categories as $category) {
               $term = get_term_by( 'id', $category, 'category' );
               ?>
-                <div  class="tool-option need-tool" data-terms="<?php echo sanitize_title($term->name);?>">
+                <div  class="tool-option need-tool" data-terms="<?php echo sanitize_title($term->name);?>" data-label="<?php echo $term->name;?>">
                   <?php echo $term->name; ?>
                 </div>
 
@@ -139,7 +139,7 @@ get_header();
             </div>
             <p class="expand-button" style="margin-top: 30px; text-decoration: underline;
                 font-weight: bold; cursor: pointer;
-                color: rgb(43, 56, 65);">Learn More <span class="arrow-show">↓</span></p>
+                color: rgb(43, 56, 65);"><?php echo __('Learn More', 'EDT'); ?> <span class="arrow-show">↓</span></p>
             <div class="expand-content"><?php echo preg_replace("/<p[^>]*>(?:\s|&nbsp;)*<\/p>/", '', get_field('extra_content')); ?></div>
 					</div>
                 </div>
@@ -162,11 +162,15 @@ get_header();
 
   jQuery(document).ready(function(){
     let usingFilter = []
+	let usingLabel = []
     let accessFilter = []
+	let accessLabel = []
     let needFilter = []
+	let needLabel = []
 
     jQuery(document).on('click', '.tool-option', function() {
       var thisData = jQuery(this).data('terms');
+	  var thisLabel = jQuery(this).data('label');
       var numberVisible = 0;
       if(jQuery(this).hasClass('tool-option-selected')) {
         jQuery(this).removeClass('tool-option-selected')
@@ -176,22 +180,28 @@ get_header();
       if(jQuery(this).hasClass('using-tools')) {
         if(usingFilter.indexOf(thisData) > -1) {
           usingFilter.splice(usingFilter.indexOf(thisData), 1);
+		  usingLabel.splice(usingLabel.indexOf(thisData), 1);
         } else {
           usingFilter.push(thisData);
+		  usingLabel.push(thisLabel);
         }
       }
       if(jQuery(this).hasClass('access-to')) {
         if(accessFilter.indexOf(thisData) > -1) {
           accessFilter.splice(accessFilter.indexOf(thisData), 1);
+		  accessLabel.splice(accessLabel.indexOf(thisData), 1);
         } else {
           accessFilter.push(thisData);
+		  accessLabel.push(thisLabel);
         }
       }
       if(jQuery(this).hasClass('need-tool')) {
         if(needFilter.indexOf(thisData) > -1) {
           needFilter.splice(needFilter.indexOf(thisData), 1);
+		  needLabel.splice(needLabel.indexOf(thisData), 1);
         } else {
           needFilter.push(thisData);
+		  needLabel.push(thisLabel);
         }
       }
       jQuery('.result-box').each(function() {
@@ -233,19 +243,19 @@ get_header();
 
       //add back filters
       jQuery('#using-tools').find('p').remove();
-      usingFilter.forEach(element => {
+      usingLabel.forEach(element => {
         var parent = document.getElementById("using-tools");
         var formatted = element.replace(/-/g, ' ')
         parent.insertAdjacentHTML('beforeend', `<p style="text-transform: capitalize; color: white !important; font-size: 15px !important">${formatted} </p>`);
       });
       jQuery('#access-to').find('p').remove();
-      accessFilter.forEach(element => {
+      accessLabel.forEach(element => {
         var parent = document.getElementById("access-to");
         var formatted = element.replace(/-/g, ' ')
         parent.insertAdjacentHTML('beforeend', `<p style="text-transform: capitalize; color: white !important; font-size: 15px !important">${formatted} </p>`);
       });
       jQuery('#need-tool').find('p').remove();
-      needFilter.forEach(element => {
+      needLabel.forEach(element => {
         var parent = document.getElementById("need-tool");
         var formatted = element.replace(/-/g, ' ')
         parent.insertAdjacentHTML('beforeend', `<p style="text-transform: capitalize; color: white !important; font-size: 15px !important">${formatted} </p>`);
@@ -266,8 +276,12 @@ get_header();
     jQuery("#clear-filters").click(()=>{
       // filter = []
       usingFilter = []
+	  usingLabel = []
       accessFilter = []
-      needFilter = []
+	  accessLabel = []
+	  needFilter = []
+	  needLabel = []
+		
       jQuery('.tool-option').each(function() {
         jQuery(this).removeClass('tool-option-selected')
       })
