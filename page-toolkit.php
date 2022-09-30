@@ -28,7 +28,36 @@ get_header();
         <h2 id="skip-anchor"><?php echo __('I want to use tools to', 'EDT'); ?>...</h2>
         <div class="tool-option-group">
           <?php
-            $categories = get_term_children(9, 'category');
+			function get_language_shortcode() {
+				return apply_filters( 'wpml_current_language', null );
+			}
+			$language = get_language_shortcode();
+			switch ($language) {
+				case 'en':
+            		$categories = get_term_children(9, 'category');
+					break;
+				case 'es':
+            		$categories = get_term_children(132, 'category');
+					break;
+				case 'pt-br':
+            		$categories = get_term_children(136, 'category');
+					break;
+				case 'fr':
+            		$categories = get_term_children(131, 'category');
+					break;
+				case 'sw':
+            		$categories = get_term_children(133, 'category');
+					break;
+				case 'km':
+            		$categories = get_term_children(165, 'category');
+					break;	
+				case 'th':
+            		$categories = get_term_children(135, 'category');
+					break;
+				case 'vn':
+            		$categories = get_term_children(166, 'category');
+					break;					
+			}
             foreach($categories as $category) {
               $term = get_term_by( 'id', $category, 'category' );
               ?>
@@ -42,8 +71,33 @@ get_header();
         <h2><?php echo __('I have access to', 'EDT'); ?>...</h2>
         <div class="tool-option-group">
           <?php
-            $categories = get_term_children(10, 'category');
-            foreach($categories as $category) {
+			switch ($language) {
+				case 'en':
+            		$categories = get_term_children(10, 'category');
+					break;
+				case 'es':
+            		$categories = get_term_children(119, 'category');
+					break;
+				case 'pt-br':
+            		$categories = get_term_children(124, 'category');
+					break;
+				case 'fr':
+            		$categories = get_term_children(120, 'category');
+					break;
+				case 'sw':
+            		$categories = get_term_children(122, 'category');
+					break;
+				case 'km':
+            		$categories = get_term_children(161, 'category');
+					break;	
+				case 'th':
+            		$categories = get_term_children(123, 'category');
+					break;
+				case 'vn':
+            		$categories = get_term_children(162, 'category');
+					break;					
+			}
+			foreach($categories as $category) {
               $term = get_term_by( 'id', $category, 'category' );
               ?>
                 <div class="tool-option access-to" data-terms="<?php echo sanitize_title($term->name);?>" data-label="<?php echo $term->name;?>">
@@ -57,8 +111,32 @@ get_header();
         <h2><?php echo __('I need a tool that', 'EDT'); ?>...</h2>
         <div class="tool-option-group">
           <?php
-            $categories = get_term_children(11, 'category');
-            foreach($categories as $category) {
+			switch ($language) {
+				case 'en':
+            		$categories = get_term_children(11, 'category');
+					break;
+				case 'es':
+            		$categories = get_term_children(127, 'category');
+					break;
+				case 'pt-br':
+            		$categories = get_term_children(129, 'category');
+					break;
+				case 'fr':
+            		$categories = get_term_children(130, 'category');
+					break;
+				case 'sw':
+            		$categories = get_term_children(125, 'category');
+					break;
+				case 'km':
+            		$categories = get_term_children(163, 'category');
+					break;	
+				case 'th':
+            		$categories = get_term_children(126, 'category');
+					break;
+				case 'vn':
+            		$categories = get_term_children(164, 'category');
+					break;					
+			}            foreach($categories as $category) {
               $term = get_term_by( 'id', $category, 'category' );
               ?>
                 <div  class="tool-option need-tool" data-terms="<?php echo sanitize_title($term->name);?>" data-label="<?php echo $term->name;?>">
@@ -159,7 +237,6 @@ get_header();
 	</div>
 
 <script>
-
   jQuery(document).ready(function(){
     let usingFilter = []
 	let usingLabel = []
