@@ -2801,3 +2801,34 @@ button.skip-button {
   cursor: pointer;
   font-family: Roboto;
 }
+
+/* Change title font for Vietnamese */
+html[lang="vi"] .general-page .content-section .wpcf7 form .form-container .top h1,
+.about-page .about-content h1, 
+.about-page .about-content h2,
+.landing-page .landing-main .landing-main-inner .content .header,
+.landing-page2 .landing-main .landing-main-inner .content .header,
+.landing-info .landing-info-inner .top h1,
+.landing-community .landing-community-inner .top h1,
+.landing-community .landing-community-inner .content-section .wpcf7 form .form-container .top h1,
+.post-3016 .wpcf7 form .form-container .top h1, 
+.post-3019 .wpcf7 form .form-container .top h1, 
+.post-3021 .wpcf7 form .form-container .top h1, 
+.post-2316 .wpcf7 form .form-container .top h1
+.landing-community .landing-community-inner .bottom .left h1,
+.landing-partners .landing-partners-inner h1,
+.landing-posts .landing-posts-inner h1,
+.special-page .special-page-inner .title-section h1,
+.special-page .special-page-inner .content-section .content-container h1,
+.special-page .special-page-inner .content-section .content-container h2,
+.special-page .special-page-inner .content-section .content-container h3,
+.special-page .special-page-inner .content-section .content-container h4,
+.special-page .special-page-inner .content-section .content-container h5,
+.special-page .special-page-inner .content-section .content-container h6,
+.special-page .special-page-inner .prev-next-section .prev .right h2,
+.special-page .special-page-inner .prev-next-section .next .left h2,
+.tool-kit-content-section h1,
+.tool-kit-content-section h2,
+#see-tool-anchor {
+  font-family: Roboto;
+}

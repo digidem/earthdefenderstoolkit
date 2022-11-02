@@ -54,7 +54,7 @@ get_header();
 				case 'th':
             		$categories = get_term_children(135, 'category');
 					break;
-				case 'vn':
+				case 'vi':
             		$categories = get_term_children(166, 'category');
 					break;					
 			}
@@ -93,7 +93,7 @@ get_header();
 				case 'th':
             		$categories = get_term_children(123, 'category');
 					break;
-				case 'vn':
+				case 'vi':
             		$categories = get_term_children(162, 'category');
 					break;					
 			}
@@ -133,7 +133,7 @@ get_header();
 				case 'th':
             		$categories = get_term_children(126, 'category');
 					break;
-				case 'vn':
+				case 'vi':
             		$categories = get_term_children(164, 'category');
 					break;					
 			}            foreach($categories as $category) {
